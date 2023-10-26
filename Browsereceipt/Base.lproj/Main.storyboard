@@ -719,13 +719,16 @@
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
-                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mkI-zf-2E4">
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mkI-zf-2E4" customClass="CatPrinterImageView" customModule="Browsereceipt" customModuleProvider="target">
                                 <rect key="frame" x="5" y="421" width="326" height="424"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="catprinter" id="SpO-Nh-4fL"/>
                             </imageView>
                         </subviews>
                     </view>
+                    <connections>
+                        <outlet property="webView" destination="gHJ-f8-H5e" id="Of7-D5-YF8"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
