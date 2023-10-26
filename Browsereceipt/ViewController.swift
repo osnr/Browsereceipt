@@ -21,6 +21,9 @@ class ViewController: NSViewController {
         }
     }
 
-
+    override func viewWillAppear() {
+        super.viewWillAppear()
+        view.window?.isOpaque = false
+        view.window?.backgroundColor = NSColor(red: 1, green: 1, blue: 1, alpha: 0.001)
+    }
 }
-

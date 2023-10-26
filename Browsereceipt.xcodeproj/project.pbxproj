@@ -14,6 +14,7 @@
 		F0366B402AEB0206006BA55C /* BrowsereceiptTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0366B3F2AEB0206006BA55C /* BrowsereceiptTests.swift */; };
 		F0366B4A2AEB0206006BA55C /* BrowsereceiptUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0366B492AEB0206006BA55C /* BrowsereceiptUITests.swift */; };
 		F0366B4C2AEB0206006BA55C /* BrowsereceiptUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0366B4B2AEB0206006BA55C /* BrowsereceiptUITestsLaunchTests.swift */; };
+		F0366B592AEB0429006BA55C /* catprinter.png in Resources */ = {isa = PBXBuildFile; fileRef = F0366B582AEB0429006BA55C /* catprinter.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		F0366B452AEB0206006BA55C /* BrowsereceiptUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BrowsereceiptUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0366B492AEB0206006BA55C /* BrowsereceiptUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowsereceiptUITests.swift; sourceTree = "<group>"; };
 		F0366B4B2AEB0206006BA55C /* BrowsereceiptUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowsereceiptUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F0366B582AEB0429006BA55C /* catprinter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = catprinter.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 				F0366B2D2AEB0205006BA55C /* AppDelegate.swift */,
 				F0366B2F2AEB0205006BA55C /* ViewController.swift */,
 				F0366B312AEB0206006BA55C /* Assets.xcassets */,
+				F0366B582AEB0429006BA55C /* catprinter.png */,
 				F0366B332AEB0206006BA55C /* Main.storyboard */,
 				F0366B362AEB0206006BA55C /* Browsereceipt.entitlements */,
 			);
@@ -225,6 +228,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0366B592AEB0429006BA55C /* catprinter.png in Resources */,
 				F0366B322AEB0206006BA55C /* Assets.xcassets in Resources */,
 				F0366B352AEB0206006BA55C /* Main.storyboard in Resources */,
 			);
