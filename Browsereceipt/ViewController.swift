@@ -17,11 +17,16 @@ class ViewController: NSViewController, WKNavigationDelegate, WKScriptMessageHan
         
         // Set up the Python
         let sys = Python.import("sys")
+        let os = Python.import("os")
+        let io = Python.import("io")
         sys.path.append("/Users/osnr/aux/Cat-Printer")
+        os.chdir("/Users/osnr/aux/Cat-Printer")
         let printer = Python.import("printer")
         let driver = printer.PrinterDriver()
+        driver.dump = true
         // MX05-F57F
         driver.connect(address: "7F4F5A11-4A6F-EB58-0089-56B126124A02")
+        driver.print(io.BytesIO(PythonBytes("Hello".utf8)), mode: "text")
         
         // Set up the browser
         self.webView.pageZoom = 0.5;
