@@ -7,7 +7,7 @@
 
 import Cocoa
 import WebKit
-
+import PythonKit
 
 class ViewController: NSViewController, WKNavigationDelegate, WKScriptMessageHandler {
     @IBOutlet weak var webView: WKWebView!
@@ -15,7 +15,15 @@ class ViewController: NSViewController, WKNavigationDelegate, WKScriptMessageHan
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
+        // Set up the Python
+        let sys = Python.import("sys")
+        sys.path.append("/Users/osnr/aux/Cat-Printer")
+        let printer = Python.import("printer")
+        let driver = printer.PrinterDriver()
+        // MX05-F57F
+        driver.connect(address: "7F4F5A11-4A6F-EB58-0089-56B126124A02")
+        
+        // Set up the browser
         self.webView.pageZoom = 0.5;
         self.webView.load(URLRequest(url: URL(string: "https://en.m.wikipedia.org/wiki/Receipt")!))
         self.webView.navigationDelegate = self
@@ -45,13 +53,8 @@ window.addEventListener("scroll", (event) => {
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
        if message.name == "didScroll" {
            print(message.body)
+           // FIXME: Write a slice of the page snapshot bitmap to disk, then dispatch it to the Python
        }
-    }
-
-    override var representedObject: Any? {
-        didSet {
-        // Update the view, if already loaded.
-        }
     }
 
     override func viewWillAppear() {

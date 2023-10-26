@@ -15,6 +15,7 @@
 		F0366B4A2AEB0206006BA55C /* BrowsereceiptUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0366B492AEB0206006BA55C /* BrowsereceiptUITests.swift */; };
 		F0366B4C2AEB0206006BA55C /* BrowsereceiptUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0366B4B2AEB0206006BA55C /* BrowsereceiptUITestsLaunchTests.swift */; };
 		F0366B592AEB0429006BA55C /* catprinter.png in Resources */ = {isa = PBXBuildFile; fileRef = F0366B582AEB0429006BA55C /* catprinter.png */; };
+		F0366B5C2AEB13D4006BA55C /* PythonKit in Frameworks */ = {isa = PBXBuildFile; productRef = F0366B5B2AEB13D4006BA55C /* PythonKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0366B5C2AEB13D4006BA55C /* PythonKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,6 +142,9 @@
 			dependencies = (
 			);
 			name = Browsereceipt;
+			packageProductDependencies = (
+				F0366B5B2AEB13D4006BA55C /* PythonKit */,
+			);
 			productName = Browsereceipt;
 			productReference = F0366B2A2AEB0205006BA55C /* Browsereceipt.app */;
 			productType = "com.apple.product-type.application";
@@ -212,6 +217,9 @@
 				Base,
 			);
 			mainGroup = F0366B212AEB0205006BA55C;
+			packageReferences = (
+				F0366B5A2AEB13D4006BA55C /* XCRemoteSwiftPackageReference "PythonKit" */,
+			);
 			productRefGroup = F0366B2B2AEB0205006BA55C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -583,6 +591,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F0366B5A2AEB13D4006BA55C /* XCRemoteSwiftPackageReference "PythonKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pvieito/PythonKit.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F0366B5B2AEB13D4006BA55C /* PythonKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F0366B5A2AEB13D4006BA55C /* XCRemoteSwiftPackageReference "PythonKit" */;
+			productName = PythonKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F0366B222AEB0205006BA55C /* Project object */;
 }
