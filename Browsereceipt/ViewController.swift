@@ -43,6 +43,7 @@ class ViewController: NSViewController, WKNavigationDelegate, WKScriptMessageHan
         if lastToY > startY { startY = lastToY }
     
         lastToY = toY
+        if startY > toY { return }
 
         let task = Process()
         
