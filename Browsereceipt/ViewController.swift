@@ -25,7 +25,14 @@ class ViewController: NSViewController, WKNavigationDelegate, WKScriptMessageHan
         didFinish navigation: WKNavigation!
     ) {
         print("Finished nav")
+        
         // TODO: Report entire PDF of rendered page to us
+        webView.takeSnapshot(with: nil) { imOpt, err in
+            if let im = imOpt {
+                try? im.tiffRepresentation?.write(to: URL(filePath: "/Users/osnr/blup.tiff"))
+            }
+        }
+        
         webView.configuration.userContentController.add(self, name:"didScroll")
         webView.evaluateJavaScript("""
 window.addEventListener("scroll", (event) => {
