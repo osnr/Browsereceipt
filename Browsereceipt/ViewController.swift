@@ -33,7 +33,7 @@ class ViewController: NSViewController, WKNavigationDelegate, WKScriptMessageHan
         
         // Set up the browser
         self.webView.pageZoom = 0.5;
-        self.webView.load(URLRequest(url: URL(string: "https://en.m.wikipedia.org/wiki/Receipt")!))
+        self.webView.load(URLRequest(url: URL(string: "https://juicetin.bearblog.dev")!))
         self.webView.navigationDelegate = self
     }
     var lastToY: Int = 0
@@ -66,23 +66,40 @@ class ViewController: NSViewController, WKNavigationDelegate, WKScriptMessageHan
             // driver.print(io.BytesIO(PythonBytes(pbmData)), mode: "pbm")
         
     }
+    var didInstallHandler = false
     func webView(
         _ webView: WKWebView,
         didFinish navigation: WKNavigation!
     ) {
         print("Finished nav")
+        lastToY = 0
+
+        webView.evaluateJavaScript("[document.body.scrollWidth, document.body.scrollHeight];") { result, error in
+               if let result = result as? NSArray {
+
+                   let orig = webView.frame
+                   webView.frame = NSRect(x: 0, y: 0, width: Int(orig.width), height: (result[1] as! NSNumber).intValue)
+
+                   webView.takeSnapshot(with: nil) { im, err in
+                       guard let tiff = im?.tiffRepresentation else { return }
+                       let directory = NSTemporaryDirectory()
+                       let fileName = NSUUID().uuidString + ".tiff"
+                       self.tiffUrl = NSURL.fileURL(withPathComponents: [directory, fileName])
+                       if let tiffUrl = self.tiffUrl {
+                           try? tiff.write(to: tiffUrl)
+                           print(tiffUrl)
+                       }
+                   }
+
+                   webView.frame = orig
+               }
+           }
+
         
-        webView.takeSnapshot(with: nil) { im, err in
-            guard let tiff = im?.tiffRepresentation else { return }
-            let directory = NSTemporaryDirectory()
-            let fileName = NSUUID().uuidString
-            self.tiffUrl = NSURL.fileURL(withPathComponents: [directory, fileName])
-            if let tiffUrl = self.tiffUrl {
-                try? tiff.write(to: tiffUrl)
-            }
+        if !didInstallHandler {
+            webView.configuration.userContentController.add(self, name:"didScroll")
+            didInstallHandler = true
         }
-        
-        webView.configuration.userContentController.add(self, name:"didScroll")
         webView.evaluateJavaScript("""
 window.addEventListener("scroll", (event) => {
    window.webkit.messageHandlers.didScroll.postMessage(window.scrollY);
