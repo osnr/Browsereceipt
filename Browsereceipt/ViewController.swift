@@ -33,7 +33,7 @@ class ViewController: NSViewController, WKNavigationDelegate, WKScriptMessageHan
         
         // Set up the browser
         self.webView.pageZoom = 0.5;
-        self.webView.load(URLRequest(url: URL(string: "https://juicetin.bearblog.dev")!))
+        self.webView.load(URLRequest(url: URL(string: "https://en.m.wikipedia.org/wiki/Hedgehog")!))
         self.webView.navigationDelegate = self
     }
     var lastToY: Int = 0
